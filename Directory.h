@@ -31,6 +31,8 @@ private:
 
 public:
     void Delete_contact(string, string);
+    void Edit_contact(string, string);
+    void Search_contact(string);
 };
 
 #endif
