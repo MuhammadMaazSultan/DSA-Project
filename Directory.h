@@ -35,8 +35,11 @@ public:
     void Add_contact(Contact);
     void Display();
 
+
+    //Code by Mehroz ALi
     void Delete_contact(string, string);
 
+    //Code By Maaz Sultan 1152
     void Edit_contact(string, string);
     void Search_contact(string);
 };
