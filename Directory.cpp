@@ -62,6 +62,56 @@ void Directory ::Delete_contact(string frstname, string lstname)
 }
 
 
+//Code by Ahmed 1218
+
+// Function to add Contact
+
+void Directory::Add_contact(Contact d)
+{
+    Node *n = new Node(d);
+    if (head == NULL)
+    {
+        head = n;
+        cout << "Contact Saved Successfully " << endl;
+        cout << "--------------------------------------------" << endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = n;
+    cout << "Contact Saved Successfully " << endl;
+    cout << "--------------------------------------------" << endl;
+}
+
+
+// Function to Display Contacts
+
+void Directory ::Display()
+{
+    if (head == NULL)
+    {
+        cout << "Contact List is empty " << endl;
+        cout << "--------------------------------------------" << endl;
+        return;
+    }
+
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << "Name: " << temp->data.firstname << " " << temp->data.lastname << endl;
+        cout << "Phone No: " << temp->data.mobile << endl;
+        cout << "Home No: " << temp->data.home << endl;
+        cout << "Work No: " << temp->data.work << endl;
+        cout << "Email: " << temp->data.email << endl;
+        cout << "--------------------------------------------" << endl;
+        temp = temp->next;
+    }
+}
+
+
 // Code by Maaz Sultan 1152
 // Funtion to edit Contact
 
