@@ -62,4 +62,70 @@ void Directory ::Delete_contact(string frstname, string lstname)
 }
 
 
+// Code by Maaz Sultan 1152
+// Funtion to edit Contact
+
+void Directory::Edit_contact(string frstname, string lstname)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        if (head->data.firstname == frstname && head->data.lastname == lstname)
+        {
+            cout << "Enter new details of contact " << endl
+                 << endl;
+            cout << "Enter New First Name " << endl;
+            cin >> temp->data.firstname;
+            cin.ignore();
+            cout << "Enter New Last Name " << endl;
+            cin >> temp->data.lastname;
+            cin.ignore();
+            cout << "Enter New Mobile Number " << endl;
+            cin >> temp->data.mobile;
+            cin.ignore();
+            cout << "Enter New Home Number (Optional: Press Enter to skip) " << endl;
+            getline(cin, temp->data.home);
+            cout << "Enter New Work Number (Optional: Press Enter to skip) " << endl;
+            getline(cin, temp->data.work);
+            cout << "Enter New E-mail Address (Optional: Press Enter to skip)" << endl;
+            getline(cin, temp->data.email);
+            cout << "Contact edited Successfully " << endl;
+            cout << "--------------------------------------------" << endl;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Contact Not found in Directory " << endl;
+    cout << "--------------------------------------------" << endl;
+}
+
+// Function to Search Contact
+
+void Directory::Search_contact(string search)
+{
+    bool found = false;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        if (temp->data.firstname.find(search) != string::npos || temp->data.lastname.find(search) != string::npos || temp->data.mobile.find(search) != string::npos ||
+            temp->data.home.find(search) != string::npos ||
+            temp->data.work.find(search) != string::npos ||
+            temp->data.email.find(search) != string::npos)
+        {
+            cout << "Contact Found Successfully " << endl;
+            cout << "Name: " << temp->data.firstname << " " << temp->data.lastname << endl;
+            cout << "Phone No: " << temp->data.mobile << endl;
+            cout << "Home No: " << temp->data.home << endl;
+            cout << "Work No: " << temp->data.work << endl;
+            cout << "Email: " << temp->data.email << endl;
+            cout << "--------------------------------------------" << endl;
+            found = true;
+        }
+        temp = temp->next;
+    }
+    if (!found)
+    {
+        cout << "Contact Not found " << endl;
+        cout << "--------------------------------------------" << endl;
+    }
 }
