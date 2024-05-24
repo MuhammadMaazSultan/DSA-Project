@@ -30,7 +30,13 @@ private:
     Node *head;
 
 public:
+    //Code by Ahmed  1218
+    Directory();
+    void Add_contact(Contact);
+    void Display();
+
     void Delete_contact(string, string);
+
     void Edit_contact(string, string);
     void Search_contact(string);
 };
